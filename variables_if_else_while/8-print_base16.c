@@ -23,7 +23,7 @@ int main(void)
 	}
 	else
 	{
-		putchar(a + 7);
+		putchar(a + 39);
 		a++;
 	}
 	}

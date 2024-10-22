@@ -19,10 +19,14 @@ int main(void)
 	while (a < 123)
 	{
 	if (a == 101 || a == 113)
+	{
 		a++;
+	}
 	else
+	{
 		putchar(a);
 		a++;
+	}
 	}
 	putchar(10);
 	return (0);

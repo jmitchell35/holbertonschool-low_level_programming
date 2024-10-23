@@ -36,6 +36,6 @@ int print_sign(int n)
 	else
 	{
 		_putchar(45);
-		return (0);
+		return (-1);
 	}
 }

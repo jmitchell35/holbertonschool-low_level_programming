@@ -1,12 +1,12 @@
 #include "main.h"
-/*No std libraries allowed => no other headers required
+/* No std libraries allowed => no other headers required */
 
 /**
-* main - Entry point
+* print_alphabet - litteraly
 *
-* Main should call upon the function print_alphabet.
+* Return: void
 *
-* Restrictions :
+* Restrictions:
 * All programs will be compiled with gcc
 * using the options -Wall -Werror -Wextra -pedantic -std=gnu89
 * Only putchar function is allowed (max 5 times, max 5 functions)
@@ -18,8 +18,6 @@
 *
 * Prototype void print_qlphqbet(void)
 * Can only use putchar twice
-*
-* Return: always 0 (success)
 */
 
 void print_alphabet(void)
@@ -32,5 +30,4 @@ void print_alphabet(void)
 		a++;
 	}
 	_putchar(10);
-	return (0);
 }

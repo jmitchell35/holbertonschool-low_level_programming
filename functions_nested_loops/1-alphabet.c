@@ -1,4 +1,4 @@
-#include "main.h"
+#include "_putchar.h"
 /*No std libraries allowed => no other headers required*/
 
 /**
@@ -22,8 +22,15 @@
 * Return: always 0 (success)
 */
 
-int main(void)
+void print_alphabet(void)
 {
-	print_alphabet();
+	int a = 97;
+
+	while (a < 123)
+	{
+		_putchar(a);
+		a++;
+	}
+	_putchar(10);
 	return (0);
 }

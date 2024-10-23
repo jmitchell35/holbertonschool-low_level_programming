@@ -1,13 +1,13 @@
 #include "main.h"
+/*No std libraries allowed => no other headers required*/
+
 /**
-* No std libraries allowed => no other headers required
-*
 * main - Entry point
 *
 * Main should print the string _putchar
 *
 * Restrictions :
-* All programs will be compiled with gcc 
+* All programs will be compiled with gcc
 * using the options -Wall -Werror -Wextra -pedantic -std=gnu89
 * Only putchar function is allowed (max 5 times, max 5 functions)
 * Code should be Betty compliant
@@ -16,7 +16,7 @@
 * Standard library not allowed
 * We are allowed to use _putchar.c as defined by papamuziko (gh)
 *
-* Return : 0 (always success)
+* Return: always 0 (success)
 */
 
 int main(void)
@@ -30,5 +30,5 @@ int main(void)
 	a++;
 	}
 	_putchar(10);
-	return(0);
+	return (0);
 }

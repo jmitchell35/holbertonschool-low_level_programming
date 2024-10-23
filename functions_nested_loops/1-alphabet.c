@@ -1,5 +1,5 @@
-#include "_putchar.h"
-/*No std libraries allowed => no other headers required*/
+#include "main.h"
+/*No std libraries allowed => no other headers required
 
 /**
 * main - Entry point

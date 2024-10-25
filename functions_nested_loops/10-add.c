@@ -4,7 +4,8 @@
 /**
 * add - prints the time tables from 0 to 9
 *
-*
+* @i: integer
+* @j: integer
 *
 * Return: result
 *
@@ -22,6 +23,6 @@
 */
 
 int add(int i, int j)
-{	
+{
 	return (i + j);
 }

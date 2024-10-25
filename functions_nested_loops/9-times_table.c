@@ -36,7 +36,7 @@ void times_table(void)
 		_putchar(' ');
 	}
 		_putchar((columns * lines % 10) + '0');
-	if(columns < 9)
+	if (columns < 9)
 	{
 		_putchar(',');
 		_putchar(' ');

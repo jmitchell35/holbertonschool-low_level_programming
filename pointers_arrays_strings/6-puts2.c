@@ -14,8 +14,12 @@ void puts2(char *str)
 
 	while (*ptr)
 	{
-		_putchar(*ptr);
-		ptr += 2;
+		ptr++;
 	}
-	_putchar('\n');
+	while (str <= ptr - 1)
+	{
+		_putchar(*str);
+		str += 2;
+	}
+	_putchar(10);
 }

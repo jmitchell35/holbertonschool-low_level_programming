@@ -14,10 +14,10 @@ void puts_half(char *str)
 
 	while (*right_bound)
 		right_bound++;
-	left_bound = str + (right_bound - str) / 2;
+	left_bound = str + ((right_bound - str) / 2) - 1;
 	while (*str)
 	{
-	if (str >= left_bound)
+	if (str > left_bound)
 	{
 		_putchar(*str);
 		str++;

@@ -23,7 +23,7 @@ int _atoi(char *s)
 	s = left_bound;
 	while (*s >= 48 && *s <= 57)
 	{
-	if (number > 2147483647 / 10)
+	if (number > 2147483599 / 10)
 		number = 2147483647;
 	else
 		number = (number * 10) - 48 + *s;

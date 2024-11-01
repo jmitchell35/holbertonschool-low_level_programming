@@ -2,7 +2,7 @@
 /* Reverses the content of an array of int */
 
 /**
-* rev_array - function reversing content of array
+* reverse_array - function reversing content of array
 *
 * @a: array of int
 * @n: number of elements in the array

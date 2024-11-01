@@ -6,6 +6,7 @@
 *
 * @dest: string src is appended to
 * @src: string to add to dest
+* @n: int, number of bytes to copy
 *
 * Return: pointer to full string
 */

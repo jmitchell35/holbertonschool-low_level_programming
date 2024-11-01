@@ -6,7 +6,7 @@
 *
 * @s: pointer to source string to convert
 *
-* Return: the pointeir to dest
+* Return: the int
 */
 int _atoi(char *s)
 {

@@ -11,7 +11,7 @@
 int _atoi(char *s)
 {
 	int sign_bit = 1, number = 0;
-	
+
 	while (*s && (*s < '0' || *s > '9'))
 	{
 	if (*s == '-')
@@ -22,7 +22,7 @@ int _atoi(char *s)
 	{
 	if (number > (2147483647 - (*s - '0')) / 10)
 	{
-		return (sign_bit == 1 ? 2147483647 : -2147483647);
+		return (sign_bit == 1 ? 2147483647 : -2147483648);
 	}
 	number = (number * 10) + (*s - '0');
 	s++;

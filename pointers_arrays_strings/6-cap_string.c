@@ -33,7 +33,7 @@ char *cap_string(char *str)
 	}
 	else
 		ref_mark = 0;
-	increment:
+increment:
 	str++;
 	}
 	return (origin);

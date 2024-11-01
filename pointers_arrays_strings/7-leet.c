@@ -22,7 +22,7 @@ char *leet(char *str)
 	{
 	if (*str == to_be_changed[i])
 		*str = substitutes[i / 2];
-	}	
+	}
 	str++;
 	}
 	return (origin);

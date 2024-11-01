@@ -1,5 +1,5 @@
 #include "main.h"
-/* Copies a string as strncpy would */
+/* Copies a string as reg std lib function would */
 
 /**
 * *_strncpy - copies a string

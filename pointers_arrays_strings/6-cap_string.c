@@ -18,19 +18,14 @@ char *cap_string(char *str)
 
 	while (*str)
 	{
-	if (ref_mark == 0)
-	{
 	for (i = 0; i < 13; i++)
 	{
 	if (*str == separators[i])
 	{
 		ref_mark = 1;
-		break;
+		goto increment;
 	}
 	}
-	}
-	else
-	{
 	if (ref_mark == 1 && *str >= 'a' && *str <= 'z')
 	{
 		*str = *str - 32;
@@ -38,7 +33,7 @@ char *cap_string(char *str)
 	}
 	else
 		ref_mark = 0;
-	}
+	increment:
 	str++;
 	}
 	return (origin);

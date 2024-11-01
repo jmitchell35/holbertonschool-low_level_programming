@@ -10,23 +10,21 @@
 */
 int _atoi(char *s)
 {
-	int sign_bit = 1;
-	int number = 0;
-	char *left_bound = s;
-
-	while (*left_bound < 48 || *left_bound > 57)
+	int sign_bit = 1, number = 0;
+	
+	while (*s && (*s < '0' || *s > '9'))
 	{
-	if (*left_bound == '-')
+	if (*s == '-')
 		sign_bit = -sign_bit;
-	left_bound++;
+	s++;
 	}
-	s = left_bound;
-	while (*s >= 48 && *s <= 57)
+	while (*s >= '0' && *s <= '9')
 	{
-	if (number > 2147483599 / 10)
-		number = 2147483647;
-	else
-		number = (number * 10) - 48 + *s;
+	if (number > (2147483647 - (*s - '0')) / 10)
+	{
+		return (sign_bit == 1 ? 2147483647 : -2147483647);
+	}
+	number = (number * 10) + (*s - '0');
 	s++;
 	}
 	return (sign_bit * number);

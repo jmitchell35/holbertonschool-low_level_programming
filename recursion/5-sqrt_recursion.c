@@ -7,27 +7,21 @@
 * Return: nat. sq. root of n, -1 if doesn't exist
 */
 
+int side_function(int n, int potential_root);
+
 int _sqrt_recursion(int n)
 {
-	static int potential_root;
-
 	if (n < 0)
 		return (-1);
-	if (potential_root * potential_root == n)
-	{
-		int natural_sqrt_root = potential_root;
+	return side_function(n, 0);
+}
 
-		potential_root = 0;
-		return (natural_sqrt_root);
-	}
+int side_function(int n, int potential_root)
+{
+	if (potential_root * potential_root == n)
+		return (potential_root);
 	else if (potential_root * potential_root > n)
-	{
-		potential_root = 0;
 		return (-1);
-	}
 	else
-	{
-		potential_root++;
-		return (_sqrt_recursion(n));
-	}
+		return (side_function(n, potential_root + 1));
 }

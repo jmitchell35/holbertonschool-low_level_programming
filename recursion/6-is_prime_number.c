@@ -7,26 +7,22 @@
 * Return: 1 if prime, 0 otherwise
 */
 
+int side_function(int n, int potential_divisor);
+
 int is_prime_number(int n)
 {
-	static int potential_divisor = 2;
-
 	if (n <= 1)
 		return (0);
 
+	return (side_function(n, 2));
+}
+
+int side_function(int n, int potential_divisor)
+{
 	if (potential_divisor == n)
-	{
-		potential_divisor = 2;
 		return (1);
-	}
 	else if (n % potential_divisor == 0)
-	{
-		potential_divisor = 2;
 		return (0);
-	}
 	else
-	{
-		potential_divisor++;
-		return (is_prime_number(n));
-	}
+		return (side_function(n, potential_divisor + 1));
 }

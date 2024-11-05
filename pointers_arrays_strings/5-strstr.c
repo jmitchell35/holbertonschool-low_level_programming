@@ -2,7 +2,7 @@
 /* Locates a substring */
 
 /**
-* _strstr() - Returns pointer to the beginning of located substr
+* _strstr - Returns pointer to the beginning of located substr
 *
 * @haystack: pointer to string
 * @needle : pointer to reference string to be found in haystack
@@ -12,20 +12,19 @@
 
 char *_strstr(char *haystack, char *needle)
 {
-	for (; *haystack; haystack++) 
+	for (; *haystack; haystack++)
 	{
 
 	const char *h = haystack;
 	const char *n = needle;
 
-	while (*h && *n && *h == *n) 
+	while (*h && *n && *h == *n)
 	{
 		h++;
 		n++;
 	}
-	if (!*n) {
-		return (char *)haystack;
+	if (!*n)
+		return ((char *)haystack);
 	}
-	}
-    return ('\0');
+	return ('\0');
 }

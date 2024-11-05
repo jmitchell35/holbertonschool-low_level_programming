@@ -7,7 +7,7 @@
 * @s: ptr to string
 * @c: char to be located
 *
-* Return: pointer to first occurence of har
+* Return: pointer to first occurence of char
 */
 
 char *_strchr(char *s, char c)
@@ -16,7 +16,7 @@ char *_strchr(char *s, char c)
 	{
 	if (*s == c)
 		return (s);
-	}
 	s++;
+	}
 	return ('\0');
 }

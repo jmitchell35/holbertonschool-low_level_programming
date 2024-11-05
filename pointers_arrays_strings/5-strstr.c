@@ -1,5 +1,4 @@
 #include "main.h"
-#include <unistd.h>
 /* Locates a substring */
 
 /**
@@ -13,8 +12,6 @@
 
 char *_strstr(char *haystack, char *needle)
 {
-	if (!*needle)
-		return (haystack);
 	for (; *haystack; haystack++) 
 	{
 
@@ -30,5 +27,5 @@ char *_strstr(char *haystack, char *needle)
 		return (char *)haystack;
 	}
 	}
-    return NULL;
+    return ('\0');
 }

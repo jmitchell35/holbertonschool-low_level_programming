@@ -5,7 +5,7 @@
 * _memset - fills the firs tn bytes of memory pointed by ptr with const b
 *
 * @s: ptr to memory address
-* @b: constant byte or character 
+* @b: constant byte or character
 * @n: number of bytes to fill with b
 *
 * Return: pointer to the memory area s

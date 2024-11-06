@@ -13,12 +13,23 @@
 
 int main(int argc, char *argv[])
 {
-	if (argc == 3)
-		printf("%d\n", atoi(argv[1]) * atoi(argv[2]));
-	else
+	char *error_ptr1, *error_ptr2;
+	int operand1, operand2;
+
+	if (argc != 3)
 	{
 		printf("Error \n");
 		return (1);
 	}
+
+	operand1 = strtol(argv[1], &error_ptr1, 10);
+	operand2 = strtol(argv[2], &error_ptr2, 10);
+
+	if (*error_ptr1 != '\0' || *error_ptr2 != '\0')
+	{
+		printf("Error \n");
+		return (1);
+	}
+	printf ("%d\n", operand1 * operand2);
 	return (0);
 }

@@ -30,6 +30,6 @@ int main(int argc, char *argv[])
 		printf("Error \n");
 		return (1);
 	}
-	printf ("%d\n", operand1 * operand2);
+	printf("%d\n", operand1 * operand2);
 	return (0);
 }

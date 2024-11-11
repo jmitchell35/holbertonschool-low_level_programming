@@ -10,13 +10,14 @@
 char *_strdup(char *str)
 {
 	char *str_copy;
-	unsigned int i;
+	unsigned int i, size;
 
 	if (str == NULL)
 	{
 		return (NULL);
 	}
-	str_copy = malloc(sizeof(char) * (unsigned int)_strlen(str) + 1);
+	size = (unsigned int)_strlen(str);
+	str_copy = malloc(sizeof(char) * (size + 1));
 	if (str_copy == NULL)
 		return (NULL);
 	for (i = 0; i < (unsigned int)_strlen(str) + 1; i++)
@@ -33,6 +34,6 @@ int _strlen(char *s)
 	char *ptr = s;
 
 	while (*ptr)
- 		ptr++;
+		ptr++;
 	return (ptr - s);
 }

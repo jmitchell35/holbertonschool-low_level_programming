@@ -10,33 +10,32 @@
 char *str_concat(char *s1, char *s2)
 {
 	char *str_copy, *str_copy_origin;
-	unsigned int i, size;
+	unsigned int i = 0, j = 0, size;
 
 	if (s1 == NULL)
-		size = _strlen(s2) + 1;
+		s1 = "";
 	else if (s2 == NULL)
-		size = _strlen(s1) + 1;
-	else
-		size = _strlen(s1) + _strlen(s2) + 1;
+		s2 = "";
+
+	size = _strlen(s1) + _strlen(s2) + 1;
 
 	str_copy = (char *)malloc(size * sizeof(char));
 	if (!str_copy)
 		return (NULL);
 
 	str_copy_origin = str_copy;
-	i = 0;
-	while (*s1 && i < size)
+	while (s1[i])
 	{
-		str_copy[i] = *s1;
-		s1++;
+		str_copy[i] = s1[i];
 		i++;
 	}
-	while (*s2 && i < size)
+	while (s2[j])
 	{
-		str_copy[i] = *s2;
-		s2++;
+		str_copy[i] = s2[j];
+		j++;
 		i++;
 	}
+	str_copy[i] = '\0';
 	return (str_copy_origin);
 }
 /**

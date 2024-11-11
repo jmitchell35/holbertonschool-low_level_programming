@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <string.h>
 #include "main.h"
 /*Function concatenates two strings*/
 /**
@@ -14,14 +13,14 @@ char *str_concat(char *s1, char *s2)
 	unsigned int i, size;
 
 	if (s1 == NULL)
-		size = strlen(s2) + 1;
+		size = _strlen(s2) + 1;
 	else if (s2 == NULL)
-		size = strlen(s1) + 1;
+		size = _strlen(s1) + 1;
 	else
-		size = strlen(s1) + strlen(s2) + 1;
+		size = _strlen(s1) + _strlen(s2) + 1;
 
 	str_copy = (char *)malloc(size * sizeof(char));
-	if (!string_copy)
+	if (!str_copy)
 		return (NULL);
 
 	str_copy_origin = str_copy;
@@ -39,4 +38,17 @@ char *str_concat(char *s1, char *s2)
 		i++;
 	}
 	return (str_copy_origin);
+}
+/**
+ * _strlen - returns length of string
+ * @s: pointer to string
+ * Return: length as int
+ */
+int _strlen(char *s)
+{
+	char *ptr = s;
+
+	while (*ptr)
+		ptr++;
+	return (ptr - s);
 }

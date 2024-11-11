@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <string.h>
 #include "main.h"
 /*Function creates duplicate of str string*/
 /**
@@ -17,8 +16,23 @@ char *_strdup(char *str)
 	{
 		return (NULL);
 	}
-	str_copy = malloc((sizeof(char) * strlen(str)) + 1);
-	for (i = 0; i < strlen(str) + 1; i++)
+	str_copy = malloc(sizeof(char) * (unsigned int)_strlen(str) + 1);
+	if (str_copy == NULL)
+		return (NULL);
+	for (i = 0; i < (unsigned int)_strlen(str) + 1; i++)
 		str_copy[i] = str[i];
 	return (str_copy);
+}
+/**
+  * _strlen - returns length of string
+  * @s: pointer to string
+  * Return: length as int
+  */
+int _strlen(char *s)
+{
+	char *ptr = s;
+
+	while (*ptr)
+ 		ptr++;
+	return (ptr - s);
 }

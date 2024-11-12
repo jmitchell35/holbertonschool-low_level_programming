@@ -37,6 +37,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		str_cursor++;
 		i++;
 	}
-	*str_cursor = *s1;
+	*str_cursor = '\0';
 	return (ptr_to_str);
 }

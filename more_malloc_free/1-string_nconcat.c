@@ -20,7 +20,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s2 = "";
 	for (; s1[length1]; length1++)
 	for (; s2[length2]; length2++)
-	size = length1 + length2 - (length2 - n);
+	if (n >= length2)
+		size = length1 + length2;
+	else
+		size = length1 + length2 - (length2 - n);
 	str_cursor = malloc(sizeof(char) * size);
 	if (str_cursor == NULL)
 		return (NULL);

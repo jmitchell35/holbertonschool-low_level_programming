@@ -19,7 +19,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (s2 == NULL)
 		s2 = "";
 	for (; s1[length1]; length1++)
+		;
 	for (; s2[length2]; length2++)
+		;
 	if (n >= length2)
 		size = length1 + length2 + 1;
 	else

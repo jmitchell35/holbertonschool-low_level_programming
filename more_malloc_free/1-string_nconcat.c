@@ -21,9 +21,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	for (; s1[length1]; length1++)
 	for (; s2[length2]; length2++)
 	if (n >= length2)
-		size = length1 + length2;
+		size = length1 + length2 + 1;
 	else
-		size = length1 + length2 - (length2 - n);
+		size = length1 + n + 1;
 	str_cursor = malloc(sizeof(char) * size);
 	if (str_cursor == NULL)
 		return (NULL);

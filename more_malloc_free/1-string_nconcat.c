@@ -24,13 +24,13 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (str_cursor == NULL)
 		return (NULL);
 	ptr_to_str = str_cursor;
-	while (*s1)
+	while (*s1 && s1 != "")
 	{
 		*str_cursor = *s1;
 		s1++;
 		str_cursor++;
 	}
-	while (*s2 && i < n)
+	while (*s2 && s2 != "" && i < n)
 	{
 		*str_cursor = *s2;
 		s2++;

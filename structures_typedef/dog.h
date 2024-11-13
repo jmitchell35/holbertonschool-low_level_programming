@@ -6,9 +6,10 @@
   * @name: char, name of
   * @owner: name of
   */
-typedef struct dog {
+typedef struct dog
+{
 	char *name;
-	float age; 
+	float age;
 	char *owner;
 } dog;
 

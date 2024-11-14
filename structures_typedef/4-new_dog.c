@@ -44,6 +44,7 @@ return (str_copy);
   * @name: ptr to name of
   * @age: float, age of
   * @owner: ptr to owner name
+  * Return: ptr to dog_t
   */
 dog_t *new_dog(char *name, float age, char *owner)
 {
@@ -52,7 +53,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (name == NULL || owner == NULL)
 		return (NULL);
 
-	ptr_to_type=malloc(sizeof(dog_t));
+	ptr_to_type = malloc(sizeof(dog_t));
 	if (ptr_to_type == NULL)
 		return (NULL);
 

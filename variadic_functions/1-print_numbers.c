@@ -29,7 +29,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	{
 		printf("%s ", separator);
 	}
-	else
+	else if (separator == NULL && i < n - 1)
 		printf(" ");
 	}
 	/*accessing and printing each argument*/

@@ -14,8 +14,11 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	va_list args;
 	/*va_list turns args into iterable list called args*/
 
-	if (n == 0)
+	if (n == 0)i
+	{
+		printf ("\n")
 		return;
+	}
 
 	va_start(args, n);
 	/*va_start starts iterating*/
@@ -25,10 +28,10 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	if (separator != NULL && i < n - 1)
 		printf("%s ", separator);
 	}
-	/*accessing each argument*/
+	/*accessing and printing each argument*/
 
 	va_end(args);
-	printf("\n");
 	/*clean mup after retrieving args*/
+	printf("\n");
 }
 

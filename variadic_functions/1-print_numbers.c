@@ -14,9 +14,9 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	va_list args;
 	/*va_list turns args into iterable list called args*/
 
-	if (n == 0)i
+	if (n == 0)
 	{
-		printf ("\n")
+		printf("\n");
 		return;
 	}
 

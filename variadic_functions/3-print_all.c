@@ -70,29 +70,23 @@ void print_all(const char * const format, ...)
 	{"s", print_str},
 	{NULL, NULL}
 	};
-	/*Declaring an array of print_t type (see header)*/
 	va_list args;
-	/*Needed for iterating arguments passed to func*/
 	int par_it, struct_it;
-	/*count variables for iterating parameter and array of struct*/
 	char *separator = "";
-	/*separator not to be printed for first iteration*/
+
 	va_start(args, format);
-	/*Initializing args*/
 	par_it = 0;
 	while (format && format[par_it])
-	{/*Entering loop iterating parameter "format"*/
+	{
 	(struct_it = 0);
 	while (print_func[struct_it].specifier)
-	{/*Entering loop iterating array of struct looking for specifier match*/
+	{
 	if (format[par_it] == *print_func[struct_it].specifier)
-	{/*True if match found*/
+	{
 	if (print_func[struct_it].ptr_to_print_func != NULL)
-	{/*True if not null pointer to printing function*/
+	{
 	print_func[struct_it].ptr_to_print_func(args, separator);
-	/*Get right ptr to printing function, passing va_list and sep */
 	separator = ", ";
-	/*Initialized after 1st loop : no print before first printed arg*/
 	}
 	}
 	struct_it++;

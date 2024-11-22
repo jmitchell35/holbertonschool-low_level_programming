@@ -82,11 +82,8 @@ void print_all(const char * const format, ...)
 	{
 	if (format[par_it] == *print_func[struct_it].specifier)
 	{
-	if (print_func[struct_it].ptr_to_print_func != NULL)
-	{
 	print_func[struct_it].ptr_to_print_func(args, separator);
 	separator = ", ";
-	}
 	}
 	struct_it++;
 	}
@@ -95,3 +92,4 @@ void print_all(const char * const format, ...)
 	printf("\n");
 	va_end(args);
 }
+

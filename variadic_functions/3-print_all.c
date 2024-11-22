@@ -45,15 +45,14 @@ void print_str(va_list args, char *separator)
 	char *str;
 
 	str = va_arg(args, char *);
-	printf("%s", separator);
 
 	if (str == NULL)
 	{
-		printf("(nil)");
+		printf("%s(nil)", separator);
 		return;
 	}
 
-	printf("%s", str);
+	printf("%s%s", separator, str);
 }
 
 /**

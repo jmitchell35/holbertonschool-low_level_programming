@@ -3,8 +3,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <limits.h>
 
 /**
  * struct op - Struct op
@@ -28,3 +26,4 @@ int int_index(int *array, int size, int (*cmp)(int));
 int (*get_op_func(char *s))(int, int);
 
 #endif
+

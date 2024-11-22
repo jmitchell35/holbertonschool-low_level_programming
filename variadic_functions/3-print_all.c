@@ -80,10 +80,10 @@ void print_all(const char * const format, ...)
 	va_start(args, format);
 	/*Initializing args*/
 	par_it = 0;
-	while (format[par_it])
+	while (format && format[par_it])
 	{/*Entering loop iterating parameter "format"*/
 	(struct_it = 0);
-	while (struct_it < 4)
+	while (print_func[struct_it].specifier)
 	{/*Entering loop iterating array of struct looking for specifier match*/
 	if (format[par_it] == *print_func[struct_it].specifier)
 	{/*True if match found*/

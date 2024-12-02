@@ -7,7 +7,7 @@
 
 int _putchar(char c);
 int _strlen(const char *str);
-typedef unsigned int size_t;
+typedef unsigned long int size_t;
 
 /**
  * struct list_s - singly linked list

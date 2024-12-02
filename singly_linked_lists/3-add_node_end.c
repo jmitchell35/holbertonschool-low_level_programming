@@ -22,7 +22,7 @@ list_t *add_node_end(list_t **head, const char *str)
 		cursor->next  = new;
 	}
 	new->str = strdup(str);
-	new->len = (unsigned int)strlen(str);
+	new->len = strlen(str);
 	new->next = NULL;
 	return (new);
 }

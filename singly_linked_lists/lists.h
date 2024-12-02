@@ -6,7 +6,8 @@
 #include <string.h>
 
 int _putchar(char c);
-typedef unsigned long int size_t;
+int _strlen(const char *str);
+typedef unsigned int size_t;
 
 /**
  * struct list_s - singly linked list

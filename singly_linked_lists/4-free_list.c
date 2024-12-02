@@ -14,7 +14,6 @@ void free_list(list_t *head)
 		if (cursor->str)
 			free(cursor->str);
 		free(cursor);
-		cursor=head;
+		cursor = head;
 	}
-	return;
 }

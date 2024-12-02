@@ -18,11 +18,11 @@ list_t *add_node_end(list_t **head, const char *str)
 	else
 	{
 		while (cursor->next)
-			cursor =cursor->next;
+			cursor = cursor->next;
 		cursor->next  = new;
 	}
 	new->str = strdup(str);
-	new->len = (long unsigned int)strlen(str);
+	new->len = (unsigned long int)strlen(str);
 	new->next = NULL;
 	return (new);
 }

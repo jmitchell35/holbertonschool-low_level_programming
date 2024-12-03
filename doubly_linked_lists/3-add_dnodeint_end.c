@@ -16,13 +16,13 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 	if (new == NULL)
 		return (NULL);
 	if (*head == NULL)
-		*head = new;
-	else
 	{
-		while (cursor->next)
-			cursor = cursor->next;
-		cursor->next = new;
+		*head = new;
+		return (new);
 	}
+	while (cursor->next)
+		cursor = cursor->next;
+	cursor->next = new;
 	new->prev = cursor;
 	new->n = n;
 	new->next = NULL;

@@ -7,9 +7,9 @@
   */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned int xor_result = n ^ m;
+	unsigned long int xor_result = n ^ m;
 	/*Result is binary where 1 marks difference between n and m bin reps*/
-	unsigned int diff_count = 0;
+	unsigned long int diff_count = 0;
 	/*We count 1, i.e. differencies, iterating down that binary string*/
 
 	while (xor_result) /*Iterating down the string, as long as > 0*/

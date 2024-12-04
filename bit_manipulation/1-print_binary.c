@@ -6,7 +6,7 @@
   */
 void print_binary(unsigned long int n)
 {
-	unsigned long int mask = 1UL << (sizeof(unesigned long int) * 8 - 1);
+	unsigned long int mask = 1UL << (sizeof(unsigned long int) * 8 - 1);
 	/**
 	  * UL is compiler command to treat 1 as unsigned long int
 	  * MSB location depends on machine architecture (64-bit, 32-bit)

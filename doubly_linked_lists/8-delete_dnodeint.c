@@ -24,38 +24,24 @@ size_t dlistint_len(const dlistint_t *h)
   */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *Rcursor = *head, *Lcursor = *head, *Delcursor = *head;
-	unsigned int list_iter;
+	dlistint_t *Delcursor = *head;
+	unsigned int list_iter = 0;
 
-	if (head == NULL)
+	if (head == NULL || *head == NULL) /*Null or empty*/
 		return (-1);
-	list_iter = 0;
-	while (list_iter < index && Rcursor)
+	while (list_iter < index && Delcursor)
 	{
-		Rcursor = Rcursor->next;
+		Delcursor = Delcursor->next;
 		list_iter++;
 	}
-	if (list_iter <= index && Rcursor == NULL)
+	if (Delcursor == NULL) /*off range*/
 		return (-1);
-	Delcursor = Rcursor;
-	if (index == 0)
-	{
-		Rcursor = Rcursor->next;
-		*head = Rcursor;
-	}
-	else if (index == dlistint_len(*head) - 1)
-	{
-		Lcursor = Rcursor->prev;
-		Lcursor->next = NULL;
-	}
+	if (Delcursor->prev)
+		Delcursor->prev->next = Delcursor->next;
 	else
-	{
-		Rcursor = Delcursor->next;
-		Lcursor = Delcursor->prev;
-		Lcursor->next = Rcursor;
-		Rcursor->prev = Lcursor;
-	}
+		*head = Delcursor->next;
+	if (Delcursor->next)
+		Delcursor->next->prev = Delcursor->prev;
 	free(Delcursor);
-
 	return (1);
 }

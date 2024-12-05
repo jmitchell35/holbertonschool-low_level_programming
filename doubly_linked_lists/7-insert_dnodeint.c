@@ -25,23 +25,22 @@ size_t dlistint_len(const dlistint_t *h)
   */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *Rcursor = *h, *Lcursor, *new;
-	unsigned int list_iter;
+	dlistint_t *Rcursor = *h, *Lcursori = *h, *new;
+	unsigned int list_iter = 0;
 
-	if (Rcursor == NULL)
+	if (head == NULL)
 		return (NULL);
-	list_iter = 0;
 	if (list_iter == idx)
 		return (add_dnodeint(h, n));
 	if (idx == dlistint_len(*h) - 1)
 		return (add_dnodeint_end(h, n));
-	while (list_iter < idx && Rcursor)
+	if (idx >= dlistint_len(*h))
+		return (NULL);
+	while (list_iter <= idx && Rcursor)
 	{
 		Rcursor = Rcursor->next;
 		list_iter++;
 	}
-	if (list_iter < idx && Rcursor == NULL)
-		return (NULL);
 	new = malloc(sizeof(dlistint_t));
 	if (new == NULL)
 		return (NULL);

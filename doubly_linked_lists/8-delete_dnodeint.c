@@ -37,6 +37,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	}
 	if (list_iter <= index && Rcursor == NULL)
 		return (-1);
+	Delcursor = Rcursor;
 	if (index == 0)
 	{
 		Rcursor = Rcursor->next;
@@ -45,12 +46,10 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	else if (index == dlistint_len(*head) - 1)
 	{
 		Lcursor = Rcursor->prev;
-		Delcursor = Rcursor;
 		Lcursor->next = NULL;
 	}
 	else
 	{
-		Delcursor = Rcursor;
 		Rcursor = Delcursor->next;
 		Lcursor = Delcursor->prev;
 		Lcursor->next = Rcursor;

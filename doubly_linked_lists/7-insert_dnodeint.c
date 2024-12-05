@@ -25,10 +25,10 @@ size_t dlistint_len(const dlistint_t *h)
   */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *Rcursor = *h, *Lcursori = *h, *new;
+	dlistint_t *Rcursor = *h, *Lcursor = *h, *new;
 	unsigned int list_iter = 0;
 
-	if (head == NULL)
+	if (h == NULL)
 		return (NULL);
 	if (list_iter == idx)
 		return (add_dnodeint(h, n));
@@ -36,7 +36,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		return (add_dnodeint_end(h, n));
 	if (idx >= dlistint_len(*h))
 		return (NULL);
-	while (list_iter <= idx && Rcursor)
+	while (list_iter < idx && Rcursor)
 	{
 		Rcursor = Rcursor->next;
 		list_iter++;
@@ -53,3 +53,4 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 
 	return (Lcursor);
 }
+

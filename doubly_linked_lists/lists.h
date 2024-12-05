@@ -6,8 +6,6 @@
 
 int _putchar(char c);
 
-typedef unsigned long int size_t;
-
 /**
  * struct dlistint_s - doubly linked list
  * @n: integer

@@ -28,13 +28,13 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	dlistint_t *Rcursor = *h, *Lcursor = *h, *new;
 	unsigned int list_iter = 0;
 
-	if (h == NULL) /*si double-ptr null*/
+	if (h == NULL) /*Null double-ptr */
 		return (NULL);
-	if (list_iter == idx) /*Si index = 0*/
+	if (idx == 0) /*Index = first*/
 		return (add_dnodeint(h, n));
-	if (idx == dlistint_len(*h) - 1) /*si index = dernier*/
+	if (idx == (dlistint_len(*h) - 1)) /*index = last*/
 		return (add_dnodeint_end(h, n));
-	if (idx >= dlistint_len(*h)) /*Si index est off-range*/
+	if (idx >= dlistint_len(*h)) /* index is off-range*/
 		return (NULL);
 	while (list_iter < idx) /*Placer les reperes*/
 	{

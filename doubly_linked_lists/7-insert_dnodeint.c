@@ -51,6 +51,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	Lcursor->next = new;
 	Rcursor->prev = new;
 
-	return (Lcursor);
+	return (new);
 }
 

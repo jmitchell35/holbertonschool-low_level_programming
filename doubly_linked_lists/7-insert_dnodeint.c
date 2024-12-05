@@ -9,7 +9,7 @@ size_t dlistint_len(const dlistint_t *h)
 	dlistint_t *ptr = (dlistint_t *)h;
 	size_t nb_elements = 0;
 
-	while (ptr->next)
+	while (ptr)
 	{
 		nb_elements++;
 		ptr = ptr->next;
@@ -32,15 +32,17 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		return (NULL);
 	if (idx == 0) /*Index = first*/
 		return (add_dnodeint(h, n));
-	if (idx == (dlistint_len(*h) - 1)) /*index = last*/
+	if (idx == dlistint_len(*h)) /*index = last*/
 		return (add_dnodeint_end(h, n));
-	if (idx >= dlistint_len(*h)) /* index is off-range*/
+	if (idx > dlistint_len(*h)) /* index is off-range*/
 		return (NULL);
-	while (list_iter < idx) /*Placer les reperes*/
+	while (list_iter < idx && Rcursor) /*Placer les reperes*/
 	{
 		Rcursor = Rcursor->next;
 		list_iter++;
 	}
+	if (Rcursor == NULL)
+		return (NULL);
 	new = malloc(sizeof(dlistint_t));
 	if (new == NULL)
 		return (NULL);

@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 	char *buffer = NULL;
 
 	if (argc != 3)
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), 
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"),
 			exit(97);
 
 	while (buffer == NULL)
@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 	error_flag = read(fd_from, buffer, 1024);
 	if (error_flag == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", 
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n",
 				argv[1]);
 		free(buffer);
 		exit(98);

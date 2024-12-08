@@ -16,6 +16,7 @@ int main(int argc, char *argv[])
 	buffer = malloc(sizeof(char) * 1024);
 	fd_from = open(argv[1], O_RDONLY);
 	fd_to = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
+	chmod(argv[2], 0664);
 	while ((bytes_read = read(fd_from, buffer, 1024)) > 0)
 	{
 		bytes_written = write(fd_to, buffer, bytes_read);

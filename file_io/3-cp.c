@@ -17,17 +17,13 @@ int main(int argc, char *argv[])
 	fd_to = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
 	while ((bytes_read = read(fd_from, buffer, 1024)) > 0)
 	{
-		bytes_total = 0;
-		while (bytes_total < bytes_read)
-		{
-		bytes_written = write(fd_to, buffer + bytes_total, bytes_read -
-				bytes_total);
+		bytes_written == (fd_to, buffer, bytes_read);
 		if (bytes_written == -1 || fd_to == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: can't write to %s\n", argv[2]);
 			close(fd_from), close(fd_to), exit(99);
-		} bytes_total += bytes_written;
 		}
+		fd_to = open(argv[2], O_WRONLY | O_APPEND);
 	}
 	if (bytes_read == -1 || fd_from == -1)
 	{
@@ -46,4 +42,3 @@ int main(int argc, char *argv[])
 	}
 	exit(0);
 }
-

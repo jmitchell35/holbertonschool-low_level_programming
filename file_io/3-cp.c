@@ -7,7 +7,7 @@
   */
 int main(int argc, char *argv[])
 {
-	int fd_from, fd_to, bytes_read, bytes_written, bytes_total, error_flag;
+	int fd_from, fd_to, bytes_read, bytes_written, error_flag;
 	char *buffer;
 
 	if (argc != 3)

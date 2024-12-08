@@ -7,7 +7,7 @@
   */
 int main(int argc, char *argv[])
 {
-	int fd_from, fd_to, bytes_read, bytes_written, bytes_total;
+	int fd_from, fd_to, bytes_read, bytes_written;
 	unsigned char buffer[1024];
 
 	if (argc != 3)
@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	fd_to = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
 	while ((bytes_read = read(fd_from, buffer, 1024)) > 0)
 	{
-		bytes_written == (fd_to, buffer, bytes_read);
+		bytes_written = write(fd_to, buffer, bytes_read);
 		if (bytes_written == -1 || fd_to == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: can't write to %s\n", argv[2]);

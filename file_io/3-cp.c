@@ -3,7 +3,7 @@
   * main - entry point
   * @argc: CLI args count
   * @argv: double-pointer to strings (CLI args)
-  * Return: int, 0 on success
+  * Return: int, 0 on success, error code otherwise
   */
 int main(int argc, char *argv[])
 {
@@ -12,26 +12,26 @@ int main(int argc, char *argv[])
 
 	check_argc(argc);
 	fd_from = open(argv[1], O_RDONLY);
+	check_fd(fd_from);
 	fd_to = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
+	check_fd(fd_to);
 	while ((bytes_read = read(fd_from, buffer, 1024)) > 0)
 	{
 		bytes_written = write(fd_to, buffer, bytes_read);
 		if (bytes_written == -1)
 		{
 		dprintf(STDERR_FILENO, "Error: can't write to %s\n", argv[2]);
+		close_file_descriptor(fd_from);
+		close_file_descriptor(fd_to);
 		exit(99);
 		}
 	}
-
 	if (fd_from == -1 || bytes_read == -1)
 	{
 	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+	close_file_descriptor(fd_from);
+	close_file_descriptor(fd_to);
 	exit(98);
-	}
-	if (bytes_written == -1 || fd_to == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: can't write to %s\n", argv[2]);
-		exit(99);
 	}
 	close_file_descriptor(fd_from);
 	close_file_descriptor(fd_to);
@@ -61,5 +61,18 @@ void check_argc(int argc)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(99);
+	}
+}
+/**
+  * check_fd - checks for open file descriptor fail
+  * @fd: int, file descriptor
+  * Return: void, exits on open fail
+  */
+void check_fd(int fd)
+{
+	if (fd == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't open fd %d\n", fd);
+		exit(100);
 	}
 }

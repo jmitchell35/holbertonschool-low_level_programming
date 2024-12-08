@@ -22,14 +22,14 @@ int main(int argc, char *argv[])
 		{
 		bytes_written = write(fd_to, buffer + bytes_total, bytes_read -
 				bytes_total);
-		if (bytes_written == -1)
+		if (bytes_written == -1 || fd_to == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: can't write to %s\n", argv[2]);
 			close(fd_from), close(fd_to), exit(99);
 		} bytes_total += bytes_written;
 		}
 	}
-	if (bytes_read == -1)
+	if (bytes_read == -1 || fd_from == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		close(fd_from), close(fd_to), exit(98);

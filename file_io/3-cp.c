@@ -11,10 +11,16 @@ int main(int argc, char *argv[])
 	char buffer[1024];
 
 	check_argc(argc);
-	fd_from = open(argv[1], O_RDONLY);
-	check_fd(fd_from);
-	fd_to = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
-	check_fd(fd_to);
+	if ((fd_from = open(argv[1], O_RDONLY)) == -1)
+	{
+	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+	exit(98);
+	}
+	if ((fd_to = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT, 0664)) == -1)
+	{
+	dprintf(STDERR_FILENO, "Error: can't write to %s\n", argv[2]);
+	exit(99);
+	}
 	while ((bytes_read = read(fd_from, buffer, 1024)) > 0)
 	{
 		bytes_written = write(fd_to, buffer, bytes_read);
@@ -63,16 +69,4 @@ void check_argc(int argc)
 		exit(99);
 	}
 }
-/**
-  * check_fd - checks for open file descriptor fail
-  * @fd: int, file descriptor
-  * Return: void, exits on open fail
-  */
-void check_fd(int fd)
-{
-	if (fd == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't open fd %d\n", fd);
-		exit(100);
-	}
-}
+

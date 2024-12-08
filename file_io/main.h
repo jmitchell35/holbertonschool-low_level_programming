@@ -15,6 +15,5 @@ int create_file(const char *filename, char *text_content);
 int append_text_to_file(const char *filename, char *text_content);
 void close_file_descriptor(int fd);
 void check_argc(int argc);
-void check_fd(int fd);
 
 #endif

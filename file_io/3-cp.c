@@ -7,7 +7,7 @@
   */
 int main(int argc, char *argv[])
 {
-	int fd_from, fd_to, bytes_read, bytes_written, error_flag;
+	int fd_from, fd_to, bytes_read, bytes_written, bytes_total;
 	char *buffer;
 
 	if (argc != 3)
@@ -18,11 +18,16 @@ int main(int argc, char *argv[])
 	fd_to = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
 	while ((bytes_read = read(fd_from, buffer, 1024)) > 0)
 	{
-		bytes_written = write(fd_to, buffer, bytes_read);
+		bytes_total = 0;
+		while (bytes_total < bytes_read)
+		{
+			bytes_written = write(fd_to, buffer + bytes_total, bytes_read -
+				bytes_total);
 		if (bytes_written == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: can't write to %s\n", argv[2]);
 			free(buffer), close(fd_from), close(fd_to), exit(99);
+		} bytes_total += bytes_written;
 		}
 	}
 	if (bytes_read == -1)
@@ -30,14 +35,12 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		free(buffer), close(fd_from), close(fd_to), exit(98);
 	}
-	error_flag = close(fd_from);
-	if (error_flag == -1)
+	if (close(fd_from )== -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
 		free(buffer), close(fd_to), exit(100);
 	}
-	error_flag = close(fd_to);
-	if (error_flag == -1)
+	if (close(fd_to) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
 		free(buffer), exit(100);

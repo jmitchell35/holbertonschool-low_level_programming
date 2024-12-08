@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 		bytes_total = 0;
 		while (bytes_total < bytes_read)
 		{
-			bytes_written = write(fd_to, buffer + bytes_total, bytes_read -
+		bytes_written = write(fd_to, buffer + bytes_total, bytes_read -
 				bytes_total);
 		if (bytes_written == -1)
 		{
@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		free(buffer), close(fd_from), close(fd_to), exit(98);
 	}
-	if (close(fd_from )== -1)
+	if (close(fd_from) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
 		free(buffer), close(fd_to), exit(100);
@@ -47,3 +47,4 @@ int main(int argc, char *argv[])
 	}
 	free(buffer), exit(0);
 }
+

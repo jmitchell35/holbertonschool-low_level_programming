@@ -17,7 +17,10 @@ int main(int argc, char *argv[])
 	{
 		bytes_written = write(fd_to, buffer, bytes_read);
 		if (bytes_written == -1)
-			break;
+		{
+		dprintf(STDERR_FILENO, "Error: can't write to %s\n", argv[2]);
+		exit(99);
+		}
 	}
 
 	if (fd_from == -1 || bytes_read == -1)
